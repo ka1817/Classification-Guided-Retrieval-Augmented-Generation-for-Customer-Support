@@ -54,7 +54,6 @@ class Classification:
             self.build_pipeline()
             self.pipeline.fit(X_train, y_train)
             logger.info("Model training completed.")
-
             y_pred = self.pipeline.predict(X_test)
             accuracy = accuracy_score(y_test, y_pred)
             logger.info(f"Classification Accuracy: {accuracy:.4f}")
@@ -65,9 +64,7 @@ class Classification:
 
 if __name__ == '__main__':
     classifier = Classification()
-
     classifier.train_and_evaluate()
     new_query = ["What are the side effects of the COVID-19 vaccine?"]
-
     predicted_domain = classifier.pipeline.predict(new_query)[0]
     print(f"Predicted domain: {predicted_domain}")
