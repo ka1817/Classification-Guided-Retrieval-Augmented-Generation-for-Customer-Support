@@ -30,6 +30,3 @@ class DataIngestion:
             logger.exception(f"Error loading data: {e}")
             raise
 
-if __name__ == "__main__":
-    data_ingestor = DataIngestion()
-    df = data_ingestor.load_data()

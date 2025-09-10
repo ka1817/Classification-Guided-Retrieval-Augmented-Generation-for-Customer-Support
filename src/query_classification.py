@@ -81,12 +81,3 @@ class Classification:
             raise
 
 
-if __name__ == '__main__':
-    classifier = Classification()
-    classifier.train_and_evaluate()
-
-    classifier.load_pipeline()
-
-    new_query = ["What are the side effects of the COVID-19 vaccine?"]
-    predicted_domain = classifier.pipeline.predict(new_query)[0]
-    print(f"Predicted domain: {predicted_domain}")

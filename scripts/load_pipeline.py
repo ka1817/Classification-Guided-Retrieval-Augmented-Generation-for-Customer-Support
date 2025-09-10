@@ -1,8 +1,8 @@
-from src.query_classification import Classification
+from src.generation import QueryRouter
 if __name__ == "__main__":
-    classifier = Classification()
-    classifier.load_pipeline()   
+    router = QueryRouter()
 
-    new_query = "How can I check my account balance?"
-    predicted_domain = classifier.pipeline.predict([new_query])[0]
-    print(f"Predicted domain: {predicted_domain}")
+    querie ="What are the side effects of the COVID-19 vaccine?"
+    domain, ans = router.route(querie)
+    print(domain)
+    print(ans)

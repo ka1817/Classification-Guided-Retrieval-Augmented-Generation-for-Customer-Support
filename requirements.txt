@@ -3,3 +3,9 @@ scikit-learn
 langchain 
 python-dotenv 
 langchain_huggingface
+langchain-community
+langchain_groq
+sentence_transformers
+faiss-cpu
+uvicorn
+fastapi

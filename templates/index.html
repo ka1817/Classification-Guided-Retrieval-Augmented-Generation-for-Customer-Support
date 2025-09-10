@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Router Demo</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Query Router Demo</h1>
+        <form id="queryForm">
+            <label for="query">Enter your question:</label>
+            <input type="text" id="query" name="query" placeholder="Type your question here..." required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result">
+            <h2>Result:</h2>
+            <p id="domain"></p>
+            <p id="answer"></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('queryForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const queryInput = document.getElementById('query').value;
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: queryInput })
+            });
+            const data = await response.json();
+            document.getElementById('domain').textContent = `Predicted Domain: ${data.domain}`;
+            document.getElementById('answer').textContent = `Answer: ${data.answer}`;
+        });
+    </script>
+</body>
+</html>
