@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
-from src.generation import QueryRouter
+from src import QueryRouter
 
 logging.basicConfig(
     level=logging.INFO,
